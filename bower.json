@@ -1,0 +1,30 @@
+{
+  "name": "cwlegal.ru",
+  "version": "5.0.1",
+  "homepage": "https://github.com/NikitaTaranchenko/cwlegal.ru",
+  "authors": [
+    "Nikita Ti <vseza@me.com>"
+  ],
+  "description": "CW Legal Bower Tools",
+  "moduleType": [
+    "yui"
+  ],
+  "keywords": [
+    "cw",
+    "legal",
+    "dev"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "bootstrap": "~3.3.2"
+  }
+}
