@@ -19,6 +19,12 @@ elixir(function(mix) {
 });
 
 gulp.task('exportFromBower', function(){
-  	gulp.src('bower_components/bootstrap/dist/js/*')
-    .pipe(gulp.dest('resources/assets/js'));
+    gulp.src('bower_components/bootstrap/dist/js/*')
+        .pipe(gulp.dest('resources/assets/js'));
+
+    gulp.src('bower_components/bootstrap/less/*')
+        .pipe(gulp.dest('resources/assets/less'));
+
+    gulp.src('bower_components/jquery/dist/*')
+        .pipe(gulp.dest('resources/assets/js'));
 });
