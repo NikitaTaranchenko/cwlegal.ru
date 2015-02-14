@@ -16,7 +16,9 @@ elixir.config.bowerDir='bower_components';
  */
 
 elixir(function(mix) {
-    mix.less('app.less');
+    mix.less('app.less')
+        .version('css/app.css')
+        .scripts(['jquery.min.js']);
 });
 
 /*
@@ -36,4 +38,7 @@ gulp.task('exportFromBower', function(){
 
     gulp.src('bower_components/jquery/dist/*')
         .pipe(gulp.dest('resources/assets/js'));
+
+    gulp.src('resources/assets/js/jquery.min.map')
+        .pipe(gulp.dest('public/js'));
 });
