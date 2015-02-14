@@ -1,8 +1,9 @@
 var elixir = require('laravel-elixir');
-elixir.config.bowerDir='bower_components';
-console.log(elixir);
 var gulp = require('gulp');
-console.log(gulp);
+
+// Configure elixir bowerDir
+elixir.config.bowerDir='bower_components';
+
 /*
  |--------------------------------------------------------------------------
  | Elixir Asset Management
@@ -18,12 +19,20 @@ elixir(function(mix) {
     mix.less('app.less');
 });
 
+/*
+ |--------------------------------------------------------------------------
+ | Gulp Task - exportFromBower
+ |--------------------------------------------------------------------------
+ |
+ | Exports components to 'resources/assets'
+ |
+ */
 gulp.task('exportFromBower', function(){
     gulp.src('bower_components/bootstrap/dist/js/*')
         .pipe(gulp.dest('resources/assets/js'));
 
     gulp.src('bower_components/bootstrap/less/*')
-        .pipe(gulp.dest('resources/assets/less'));
+        .pipe(gulp.dest('resources/assets/less/bootstrap'));
 
     gulp.src('bower_components/jquery/dist/*')
         .pipe(gulp.dest('resources/assets/js'));
