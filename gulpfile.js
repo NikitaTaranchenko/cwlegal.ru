@@ -18,7 +18,7 @@ elixir.config.bowerDir='bower_components';
 elixir(function(mix) {
     mix.less('app.less')
         .version('css/app.css')
-        .scripts(['jquery.min.js']);
+        .scripts(['jquery.min.js', 'bootstrap.min.js'], 'public/js/all.js', 'resources/assets/js');
 });
 
 /*
