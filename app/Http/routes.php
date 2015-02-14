@@ -11,6 +11,9 @@
 |
 */
 
+Route::get('token/request', 'LoginController@tokenRequest');
+Route::get('token/insert/{email}/{value}', 'LoginController@tokenInsert');
+
 Route::get('/', 'WelcomeController@index');
 
 Route::get('home', 'HomeController@index');
