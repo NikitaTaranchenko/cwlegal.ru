@@ -1,5 +1,6 @@
 var elixir = require('laravel-elixir');
-
+elixir.config.bowerDir='bower_components';
+console.log(elixir);
 /*
  |--------------------------------------------------------------------------
  | Elixir Asset Management
