@@ -15,6 +15,9 @@ class CreateTemplatesTable extends Migration {
 		Schema::create('templates', function(Blueprint $table)
 		{
 			$table->increments('id');
+			$table->string('owner_id');
+			$table->string('name', 50);
+			$table->string('path', 255);
 			$table->timestamps();
 		});
 	}
