@@ -1,6 +1,8 @@
 var elixir = require('laravel-elixir');
 elixir.config.bowerDir='bower_components';
 console.log(elixir);
+var gulp = require('gulp');
+console.log(gulp);
 /*
  |--------------------------------------------------------------------------
  | Elixir Asset Management
@@ -14,4 +16,9 @@ console.log(elixir);
 
 elixir(function(mix) {
     mix.less('app.less');
+});
+
+gulp.task('exportFromBower', function(){
+  	gulp.src('bower_components/bootstrap/dist/js/*')
+    .pipe(gulp.dest('resources/assets/js'));
 });
