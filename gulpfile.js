@@ -36,6 +36,9 @@ gulp.task('exportFromBower', function(){
     gulp.src('bower_components/bootstrap/less/*')
         .pipe(gulp.dest('resources/assets/less/bootstrap'));
 
+    gulp.src('bower_components/bootstrap/less/mixins/*')
+        .pipe(gulp.dest('resources/assets/less/bootstrap/mixins'));
+
     gulp.src('bower_components/jquery/dist/*')
         .pipe(gulp.dest('resources/assets/js'));
 

@@ -1,6 +1,6 @@
 /.idea
-/public
 /vendor
 /node_modules
 /bower_components
 .env
+/public
