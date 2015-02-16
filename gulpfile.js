@@ -18,7 +18,8 @@ elixir.config.bowerDir='bower_components';
 elixir(function(mix) {
     mix.less('app.less')
         .version('css/app.css')
-        .scripts(['jquery.min.js', 'bootstrap.min.js'], 'public/js/all.js', 'resources/assets/js');
+        .scripts(['jquery.min.js', 'bootstrap.min.js'], 'public/js/framework.js', 'resources/assets/js')
+        .scripts(['html5shiv.min.js', 'respond.min.js'], 'public/js/ie.js', 'resources/assets/js');
 });
 
 /*
@@ -44,4 +45,10 @@ gulp.task('exportFromBower', function(){
 
     gulp.src('resources/assets/js/jquery.min.map')
         .pipe(gulp.dest('public/js'));
+
+    gulp.src('bower_components/html5shiv/html5shiv.min.js')
+        .pipe(gulp.dest('resources/js'));
+
+    gulp.src('bower_components/respond-minmax/dest/respond.min.js')
+        .pipe(gulp.dest('resources/js'));
 });

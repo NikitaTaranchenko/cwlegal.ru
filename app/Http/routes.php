@@ -11,8 +11,12 @@
 |
 */
 
-Route::get('token/request', 'LoginController@tokenRequest');
-Route::get('token/insert/{email}/{value}', 'LoginController@tokenInsert');
+Route::get('login/token', 'LoginController@tokenRequest');
+
+Route::get('login/token/{md5}', [
+    'as' => 'token.insert',
+    'uses' => 'LoginController@tokenInsert'
+])->where(['md5'=>'[0-9a-z]{32}']);
 
 Route::get('/', 'WelcomeController@index');
 
