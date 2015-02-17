@@ -18,6 +18,7 @@ class TokenController extends Controller {
         return view('token.form');
     }
 
+
     public function formSubmitted(TokenFormSubmittedRequest $request)
     {
         $this->dispatch(new SendEmailWithToken($request->get('email')));
