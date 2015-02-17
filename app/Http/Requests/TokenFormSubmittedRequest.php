@@ -1,6 +1,6 @@
 <?php namespace App\Http\Requests;
 
-use App\Http\Requests\Request;
+
 
 class TokenFormSubmittedRequest extends Request {
 
@@ -22,7 +22,7 @@ class TokenFormSubmittedRequest extends Request {
 	public function rules()
 	{
 		return [
-			'email' => 'required|regex:([a-z]+\.[a-z]+\@(eur.cushwake.com))'
+			'email' => 'required|email|regex:([a-z]+\.[a-z]+\@(eur.cushwake.com))'
 		];
 	}
 

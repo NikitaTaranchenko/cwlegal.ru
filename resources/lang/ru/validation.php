@@ -56,7 +56,7 @@ return [
 	],
 	"not_in"               => "The selected :attribute is invalid.",
 	"numeric"              => "The :attribute must be a number.",
-	"regex"                => "Неверный формат :attribute.",
+	"regex"                => "Неправильный формат поля: :attribute.",
 	"required"             => "The :attribute field is required.",
 	"required_if"          => "The :attribute field is required when :other is :value.",
 	"required_with"        => "The :attribute field is required when :values is present.",
@@ -89,6 +89,11 @@ return [
 		'attribute-name' => [
 			'rule-name' => 'custom-message',
 		],
+        'email' => [
+            'required'  => 'Требуется ввести :attribute.',
+            'regex'     => 'Такой :attribute не поддерживается в настоящее время.',
+            'email'     => 'Требуется указать действительный :attribute.'
+        ]
 	],
 
 	/*
@@ -103,7 +108,7 @@ return [
 	*/
 
 	'attributes' => [
-        'email' => 'электронной почты',
+        'email' => 'адрес электронной почты',
     ],
 
 ];

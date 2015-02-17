@@ -13,6 +13,7 @@
     <div class="panel panel-default">
         <div class="panel panel-heading">
             <h1>{{ trans('login.requestToken') }}</h1>
+            <small>{{ trans('login.requestTokenHelper').'.' }}</small>
         </div>
         <div class="panel panel-body">
             {!! Form::open() !!}
@@ -27,7 +28,6 @@
                     'class'=>' btn btn-primary'
                 )) !!}
             </div>
-            <p>{{ trans('login.requestTokenHelper').'.' }}</p>
             {!! Form::close() !!}
         </div>
     </div>
