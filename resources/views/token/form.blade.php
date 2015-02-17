@@ -7,22 +7,10 @@
 @section('content')
 
     <!-- Alerts -->
-    @if($errors->all())
-        <div class="alert alert-danger alert-dismissible" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            @foreach($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </div>
-    @endif
+    @include('partials.errors')
 
     <!-- Language Selection -->
-    @if(!Session::has('locale'))
-        <div class="alert alert-warning alert-dismissible" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <a href="/lang/ru">Эта страница по-русски.</a>
-        </div>
-    @endif
+    @include('partials.lang')
 
     <!-- Form to request token for login into the secure area -->
     <div class="panel panel-default">
