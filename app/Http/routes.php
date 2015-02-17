@@ -11,7 +11,25 @@
 |
 */
 
-Route::get('login/token', 'LoginController@tokenRequest');
+// Login routes
+
+Route::get('login/token', array(
+    'as'    => 'token.show.form',
+    'uses'  => 'TokenController@showForm'
+));
+
+Route::post('login/token', [
+    'as'    => 'token.form.submitted',
+    'uses'  => 'TokenController@formSubmitted'
+]);
+
+// Settings routes
+
+Route::get('lang/{locale}', array(
+   'as'     => 'settings.lang.change',
+   'uses'  => 'LocaleController@changeLang'
+))->where(['locale'=>'[en|ru]{2}']);
+
 
 Route::get('login/token/{md5}', [
     'as' => 'token.insert',

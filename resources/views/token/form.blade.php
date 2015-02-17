@@ -4,9 +4,18 @@
     <title>{{ trans('login.requestToken') }}</title>
 @endsection
 
-
 @section('content')
 
+    <!-- Alerts -->
+    @if(isset($errors))
+        <div class="alert alert-danger alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+            @foreach($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </div>
+    @endif
 
     <!-- Form to request token for login into the secure area -->
     <div class="panel panel-default">

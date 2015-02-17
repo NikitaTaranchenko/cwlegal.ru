@@ -87,9 +87,14 @@ class LoginController extends Controller {
         return "Inserted token: " . $md5;
     }
 
-    public function tokenRequest()
+    public function showTokenRequestForm()
     {
         return view('login.form');
+    }
+
+    public function submitEmail()
+    {
+        return "Email Submitted";
     }
 
 }
