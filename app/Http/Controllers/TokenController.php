@@ -5,8 +5,10 @@ use App\Http\Controllers\Controller;
 
 use App\Http\Requests\TokenFormSubmittedRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Validation\Validator;
+use Illuminate\Support\Facades\Validator;
+
 
 class TokenController extends Controller {
 
@@ -17,7 +19,7 @@ class TokenController extends Controller {
 
     public function formSubmitted(TokenFormSubmittedRequest $request)
     {
-        echo "true";
+
     }
 
 }

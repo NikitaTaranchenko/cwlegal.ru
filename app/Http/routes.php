@@ -14,7 +14,7 @@
 // Login routes
 
 Route::get('login/token', array(
-    'as'    => 'token.show.form',
+    'as'    => 'show.token.form',
     'uses'  => 'TokenController@showForm'
 ));
 
@@ -27,7 +27,7 @@ Route::post('login/token', [
 
 Route::get('lang/{locale}', array(
    'as'     => 'settings.lang.change',
-   'uses'  => 'LocaleController@changeLang'
+   'uses'   => 'LocaleController@changeLang'
 ))->where(['locale'=>'[en|ru]{2}']);
 
 
@@ -41,6 +41,7 @@ Route::get('/', 'WelcomeController@index');
 Route::get('home', 'HomeController@index');
 
 Route::get('test', 'TestController@index');
+Route::get('session', 'TestController@clearSession');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
