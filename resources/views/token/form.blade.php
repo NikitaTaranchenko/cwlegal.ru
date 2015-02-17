@@ -6,10 +6,7 @@
 
 @section('content')
 
-    <!-- Alerts -->
     @include('partials.errors')
-
-    <!-- Language Selection -->
     @include('partials.lang')
 
     <!-- Form to request token for login into the secure area -->
