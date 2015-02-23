@@ -1,17 +1,34 @@
 <?php namespace App\Http\Controllers;
 
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
 
-use Carbon\Carbon;
-use Illuminate\Http\Request;
+use Illuminate\Foundation\Application;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Session;
 
 class TestController extends Controller {
 
+    /**
+     * @var Application
+     */
+    private $app;
+    /**
+     * @var Config
+     */
+    private $config;
+
+    public function __construct(Application $app, Config $config)
+    {
+
+        $this->app = $app;
+        $this->config = $config;
+    }
+
 	public function index()
     {
-        return Carbon::now();
+//        dd($this->config->getFacadeRoot()['app']['locales']);
+        return $this->config->getFacadeRoot()['app']['locales'];
     }
 
     public function clearSession()

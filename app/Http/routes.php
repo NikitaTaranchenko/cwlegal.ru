@@ -12,32 +12,17 @@
 */
 
 // Login routes
-
-Route::get('login/token', array(
-    'as'    => 'show.token.form',
-    'uses'  => 'TokenController@showForm'
-));
-
-Route::post('login/token', [
-    'as'    => 'token.form.submitted',
-    'uses'  => 'TokenController@formSubmitted'
-]);
+Route::get('login/token', array('as'=>'show.token.form', 'uses'=>'TokenController@showForm'));
+Route::post('login/token', array('as'=>'token.form.submitted', 'uses'=>'TokenController@formSubmitted'));
 
 // Settings routes
+Route::get('lang/{locale}', array('as'=>'settings.lang.change', 'uses'=>'LocaleController@changeLang'))
+    ->where(['locale'=>'[en|ru]{2}']);
 
-Route::get('lang/{locale}', array(
-   'as'     => 'settings.lang.change',
-   'uses'   => 'LocaleController@changeLang'
-))->where(['locale'=>'[en|ru]{2}']);
-
-
-Route::get('login/token/{md5}', [
-    'as' => 'token.insert',
-    'uses' => 'LoginController@tokenInsert'
-])->where(['md5'=>'[0-9a-z]{32}']);
+Route::get('login/token/{md5}', array('as'=>'token.insert', 'uses'=>'LoginController@tokenInsert'))
+    ->where(['md5'=>'[0-9a-z]{32}']);
 
 Route::get('/', 'WelcomeController@index');
-
 Route::get('home', 'HomeController@index');
 
 Route::get('test', 'TestController@index');
