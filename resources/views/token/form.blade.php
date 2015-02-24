@@ -6,8 +6,8 @@
 
 @section('content')
 
-    @include('partials.errors')
     @include('partials.lang')
+    @include('partials.errors')
 
     <!-- Form to request token for login into the secure area -->
     <div class="panel panel-default">
