@@ -6,9 +6,4 @@ return array(
     'requestToken'              =>'Запрос токена',
     'requestTokenHelper'        =>'Ссылка для авторизации будет отправлена на ваш адрес электронной почты',
 
-    'settings' => [
-        'en'    => 'English',
-        'ru'    => 'Russian'
-    ],
-
 );
