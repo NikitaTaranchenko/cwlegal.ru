@@ -12,21 +12,24 @@
 */
 
 // Login routes
-Route::get('login/token', array('as'=>'show.token.form', 'uses'=>'TokenController@showForm'));
-Route::post('login/token', array('as'=>'token.form.submitted', 'uses'=>'TokenController@formSubmitted'));
+Route::get('token', array('as'=>'token.form.Show', 'uses'=>'TokenController@formShow'));
+Route::post('token', array('as'=>'token.form.Submitted', 'uses'=>'TokenController@formSubmitted'));
+//Route::get('login/token/{md5}', array('as'=>'token.insert', 'uses'=>'TokenController@tokenInsert'))
+//    ->where(['md5'=>'[0-9a-z]{32}']);
+Route::get('token/insert', array('as'=>'token.insert', 'uses'=>'TokenController@tokenInsert'));
 
 // Settings routes
 Route::get('locale/{value}', array('as'=>'switch.locale', 'uses'=>'LocaleController@changeLang'))
     ->where(['value'=>'[en|ru]{2}']);
 
-Route::get('login/token/{md5}', array('as'=>'token.insert', 'uses'=>'LoginController@tokenInsert'))
-    ->where(['md5'=>'[0-9a-z]{32}']);
+
 
 Route::get('/', 'WelcomeController@index');
 Route::get('home', 'HomeController@index');
 
 Route::get('test', 'TestController@index');
 Route::get('session', 'TestController@clearSession');
+Route::get('mail', 'TestController@sendMail');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',

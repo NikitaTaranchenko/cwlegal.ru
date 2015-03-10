@@ -5,5 +5,6 @@ return array(
     'submit'                    =>'Submit',
     'requestToken'              =>'Request token',
     'requestTokenHelper'        =>'Login link will be sent to your email',
+    'emailSubj'                 =>'Authorization Link'
 
 );

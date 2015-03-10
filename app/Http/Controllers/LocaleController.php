@@ -26,7 +26,7 @@ class LocaleController extends Controller {
     public function changeLang($locale)
     {
         $this->dispatch(new SwitchLocale($locale));
-        return redirect()->route('show.token.form');
+        return redirect()->back();
     }
 
     /**

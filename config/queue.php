@@ -16,7 +16,8 @@ return [
 	|
 	*/
 
-	'default' => env('QUEUE_DRIVER', 'sync'),
+//	'default' => env('QUEUE_DRIVER', 'sync'),
+    'default' => 'beanstalkd',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -45,7 +46,7 @@ return [
 		'beanstalkd' => [
 			'driver' => 'beanstalkd',
 			'host'   => 'localhost',
-			'queue'  => 'default',
+			'queue'  => 'cwlegalmailqueue',
 			'ttr'    => 60,
 		],
 
@@ -86,7 +87,7 @@ return [
 	*/
 
 	'failed' => [
-		'database' => 'mysql', 'table' => 'failed_jobs',
+		'database' => 'sqlite', 'table' => 'failed_jobs',
 	],
 
 ];
