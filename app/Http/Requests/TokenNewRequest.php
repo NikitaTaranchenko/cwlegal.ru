@@ -1,8 +1,6 @@
 <?php namespace App\Http\Requests;
 
-
-
-class TokenFormSubmittedRequest extends Request {
+class TokenNewRequest extends Request {
 
 	/**
 	 * Determine if the user is authorized to make this request.

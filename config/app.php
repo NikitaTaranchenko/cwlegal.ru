@@ -156,6 +156,11 @@ return [
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
 
+        /*
+         * BackEnd Service Provider
+         */
+        'App\Providers\BackEndServiceProvider',
+
 	],
 
 	/*

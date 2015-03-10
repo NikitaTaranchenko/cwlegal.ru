@@ -12,11 +12,13 @@
 */
 
 // Login routes
-Route::get('token', array('as'=>'token.form.Show', 'uses'=>'TokenController@formShow'));
-Route::post('token', array('as'=>'token.form.Submitted', 'uses'=>'TokenController@formSubmitted'));
-//Route::get('login/token/{md5}', array('as'=>'token.insert', 'uses'=>'TokenController@tokenInsert'))
-//    ->where(['md5'=>'[0-9a-z]{32}']);
-Route::get('token/insert', array('as'=>'token.insert', 'uses'=>'TokenController@tokenInsert'));
+Route::get('token/new', [
+        'as'=>'token.new.form', 'uses'=>'TokenController@getNewToken'
+]);
+
+Route::post('token/new', [
+        'as'=>'token.new.form.submitted', 'uses'=>'TokenController@setNewToken'
+]);
 
 // Settings routes
 Route::get('locale/{value}', array('as'=>'switch.locale', 'uses'=>'LocaleController@changeLang'))
