@@ -15,11 +15,11 @@ class SendEmailWithToken extends Command {
      */
 	public function __construct($email, $token)
 	{
-        $name = explode('@', $email);
-        $name = ucwords(implode(' ', explode('.', $name[0])));
+	        $name = explode('@', $email);
+        	$name = ucwords(implode(' ', explode('.', $name[0])));
 
-        $this->email = $email;
-        $this->name = $name;
-        $this->token = $token;
+       		$this->email = $email;
+        	$this->name = $name;
+        	$this->token = $token;
 	}
 }

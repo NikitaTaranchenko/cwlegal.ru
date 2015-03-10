@@ -32,8 +32,8 @@ class TokenController extends Controller
     {
         $email = $request->get('email');
         $token = $this->tokenRepo->getNew($email);
-
-        $this->dispatch(new SendEmailWithToken($email, $token));
+        
+	$this->dispatch(new SendEmailWithToken($email, $token));
         return "Email sent!";
     }
 
