@@ -13,11 +13,11 @@
 
 // Login routes
 Route::get('token/new', [
-        'as'=>'token.request.form', 'uses'=>'TokenController@getTokenNew'
+        'as'=>'token.new.form.', 'uses'=>'TokenController@getNew'
 ]);
 
 Route::post('token/new', [
-        'as'=>'token.request.form.submitted', 'uses'=>'TokenController@postTokenNew'
+        'as'=>'token.new.form.submit', 'uses'=>'TokenController@postNew'
 ]);
 
 // Settings routes
