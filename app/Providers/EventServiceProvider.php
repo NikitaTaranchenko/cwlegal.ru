@@ -14,6 +14,7 @@ class EventServiceProvider extends ServiceProvider {
 		'App\Events\UserSwitchedLocale' => [
 			'App\Handlers\Events\SwitchLocale@handle',
 		],
+
 	];
 
 	/**

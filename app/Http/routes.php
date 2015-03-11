@@ -13,11 +13,11 @@
 
 // Login routes
 Route::get('token/new', [
-        'as'=>'token.new.form', 'uses'=>'TokenController@getNewToken'
+        'as'=>'token.request.form', 'uses'=>'TokenController@getTokenNew'
 ]);
 
 Route::post('token/new', [
-        'as'=>'token.new.form.submitted', 'uses'=>'TokenController@setNewToken'
+        'as'=>'token.request.form.submitted', 'uses'=>'TokenController@postTokenNew'
 ]);
 
 // Settings routes
@@ -29,9 +29,7 @@ Route::get('locale/{value}', array('as'=>'switch.locale', 'uses'=>'LocaleControl
 Route::get('/', 'WelcomeController@index');
 Route::get('home', 'HomeController@index');
 
-Route::get('test', 'TestController@index');
-Route::get('session', 'TestController@clearSession');
-Route::get('mail', 'TestController@sendMail');
+
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',

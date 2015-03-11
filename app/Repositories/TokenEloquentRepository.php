@@ -7,14 +7,17 @@ class TokenEloquentRepository implements TokenRepositoryInterface {
     /**
      * Store a newly created token in storage
      *
+     * @param $hash
      * @param $email
-     * @param $token
+     * @return bool
+     * @internal param $token
      */
-    public function store($email, $token)
+    public function store($hash, $email)
     {
         $token = new Token;
         $token->email = $email;
-        $token->value = $token;
-        $token->save();
+        $token->hash = $hash;
+
+        return $token->save();
     }
 }

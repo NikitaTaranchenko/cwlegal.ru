@@ -2,6 +2,6 @@
 
 interface TokenRepositoryInterface {
 
-    public function store($email, $token);
+    public function store($token, $email);
 
 }

@@ -14,8 +14,8 @@ class CreateTokensTable extends Migration {
 	{
 		Schema::create('tokens', function(Blueprint $table)
 		{
-			$table->string('value', 32);
-            $table->string('email', 255)->unique();
+			$table->string('hash', 32);
+            $table->string('email', 255);
 			$table->timestamps();
 		});
 	}
