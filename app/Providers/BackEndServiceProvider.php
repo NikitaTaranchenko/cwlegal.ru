@@ -22,8 +22,8 @@ class BackEndServiceProvider extends ServiceProvider {
 	public function register()
 	{
 		$this->app->bind(
-            'App\Repositories\TokenRepositoryInterface',
-            'App\Repositories\TokenEloquentRepository'
+            'Acme\Repositories\TokenRepositoryInterface',
+            'Acme\Repositories\TokenEloquentRepository'
         );
 	}
 

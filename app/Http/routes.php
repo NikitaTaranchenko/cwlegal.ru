@@ -10,28 +10,15 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+Route::get('auth/token', 'AuthController@getToken');
+Route::post('auth/token', 'AuthController@postToken');
 
-// Login routes
-Route::get('token/new', [
-        'as'=>'token.new.form.', 'uses'=>'TokenController@getNew'
-]);
-
-Route::post('token/new', [
-        'as'=>'token.new.form.submit', 'uses'=>'TokenController@postNew'
-]);
-
-// Settings routes
-Route::get('locale/{value}', array('as'=>'switch.locale', 'uses'=>'LocaleController@changeLang'))
-    ->where(['value'=>'[en|ru]{2}']);
+Route::get('settings/locale/{lang}', 'SettingsController@getLocale');
 
 
-
-Route::get('/', 'WelcomeController@index');
-Route::get('home', 'HomeController@index');
-
-
-
-Route::controllers([
-	'auth' => 'Auth\AuthController',
-	'password' => 'Auth\PasswordController',
-]);
+//Route::get('/', 'WelcomeController@index');
+//Route::get('home', 'HomeController@index');
+//Route::controllers([
+//	'auth' => 'Auth\AuthController',
+//	'password' => 'Auth\PasswordController',
+//]);
