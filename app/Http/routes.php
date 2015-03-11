@@ -13,8 +13,9 @@
 Route::get('auth/token', 'AuthController@getToken');
 Route::post('auth/token', 'AuthController@postToken');
 
-Route::get('settings/locale/{lang}', 'SettingsController@getLocale');
-
+Route::controllers([
+    'lang' => 'Preferences\LanguageController'
+]);
 
 //Route::get('/', 'WelcomeController@index');
 //Route::get('home', 'HomeController@index');
