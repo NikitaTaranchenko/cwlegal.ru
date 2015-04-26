@@ -13,7 +13,7 @@ class SendEmailWithToken extends Command {
      *
      * @param $email
      */
-	public function __construct($email, $token)
+	public function __construct($emailSendEmailWithToken.php)
 	{
 	        $name = explode('@', $email);
         	$name = ucwords(implode(' ', explode('.', $name[0])));

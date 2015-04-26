@@ -19,7 +19,8 @@ elixir(function(mix) {
     mix.less('app.less')
         .version('css/app.css')
         .scripts(['jquery.min.js', 'bootstrap.min.js'], 'public/js/framework.js', 'resources/assets/js')
-        .scripts(['html5shiv.min.js', 'respond.min.js'], 'public/js/ie.js', 'resources/assets/js');
+        .scripts(['html5shiv.min.js', 'respond.min.js'], 'public/js/ie.js', 'resources/assets/js')
+        .copy('public/fonts', 'public/build/fonts');
 });
 
 /*
@@ -36,6 +37,12 @@ gulp.task('exportFromBower', function(){
 
     gulp.src('bower_components/bootstrap/less/*')
         .pipe(gulp.dest('resources/assets/less/bootstrap'));
+
+    gulp.src('bower_components/font-awesome/less/*')
+        .pipe(gulp.dest('resources/assets/less/font-awesome'));
+
+    gulp.src('bower_components/font-awesome/fonts/*')
+        .pipe(gulp.dest('public/fonts'));
 
     gulp.src('bower_components/bootstrap/less/mixins/*')
         .pipe(gulp.dest('resources/assets/less/bootstrap/mixins'));

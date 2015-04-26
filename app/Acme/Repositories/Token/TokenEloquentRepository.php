@@ -1,4 +1,4 @@
-<?php namespace Acme\Repositories\Token;
+<?php namespace App\Acme\Repositories\Token;
 
 use App\Token as Token;
 

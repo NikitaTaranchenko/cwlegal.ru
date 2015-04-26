@@ -1,4 +1,4 @@
-<?php namespace Acme\Repositories\Token;
+<?php namespace App\Acme\Repositories\Token;
 
 interface TokenRepositoryInterface {
 
