@@ -14,8 +14,10 @@ Route::get('/', function(){
     return view('static.landing');
 });
 
-Route::get('sign', 'SignInController@index');
-Route::post('sign', 'SignInController@post');
+Route::get('auth', ['as'=>'auth', 'uses'=>'AuthController@index']);
+Route::post('auth', ['as'=>'auth.post', 'uses'=>'AuthController@post']);
+Route::get('auth/{token}', ['as'=>'auth.byToken', 'uses'=>'AuthController@byToken'])
+->where('token', '[0-9a-z]{32}');
 
 //Route::controllers([
 //    'lang' => 'Preferences\LanguageController'

@@ -4,4 +4,8 @@ interface TokenRepositoryInterface {
 
     public function store($hash, $email);
 
+    public function retrieveUserByHash($hash);
+
+    public function deleteUserByHash($hash);
+
 }

@@ -12,4 +12,14 @@ class TokenEloquentRepository implements TokenRepositoryInterface {
 
         $token->save();
     }
+
+    public function retrieveUserByHash($hash)
+    {
+        return Token::where('hash', '=', $hash)->get();
+    }
+
+    public function deleteUserByHash($hash)
+    {
+        return Token::where('hash', '=', $hash)->delete();
+    }
 }

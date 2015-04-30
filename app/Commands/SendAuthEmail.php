@@ -15,12 +15,23 @@ class SendAuthEmail extends Command {
      */
 	public function __construct($email)
 	{
-
+        /**
+         * Extract name of user from email address
+         * qualifying to pattern name.surname@eur.cushwake.com
+         */
         $name = explode('@', $email);
         $name = ucwords(implode(' ', explode('.', $name[0])));
 
-       		$this->email = $email;
-        	$this->name = $name;
-        	$this->token = $token;
+        /**
+         * Calculate md5 hash as @param $token.
+         */
+        $token = md5($email . microtime() . 'cwanywheresalt');
+
+        /**
+         * Pass values to Command's parameters.
+         */
+       	$this->email = $email;
+        $this->name = $name;
+        $this->token = $token;
 	}
 }
