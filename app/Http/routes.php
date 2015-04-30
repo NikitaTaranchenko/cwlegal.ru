@@ -14,10 +14,10 @@ Route::get('/', function(){
     return view('static.landing');
 });
 
-Route::get('auth', ['as'=>'auth', 'uses'=>'AuthController@index']);
+Route::get('auth/{hash?}', ['as'=>'auth.get', 'uses'=>'AuthController@index'])
+->where('hash', '[0-9a-z]{32}');
 Route::post('auth', ['as'=>'auth.post', 'uses'=>'AuthController@post']);
-Route::get('auth/{token}', ['as'=>'auth.byToken', 'uses'=>'AuthController@byToken'])
-->where('token', '[0-9a-z]{32}');
+
 
 //Route::controllers([
 //    'lang' => 'Preferences\LanguageController'

@@ -2,7 +2,7 @@
 
 
 use App\Commands\SendAuthEmail;
-use App\Commands\ValidateAuthToken;
+use App\Commands\TrySignIn;
 use App\Http\Requests;
 use App\Http\Requests\AuthPostRequest;
 use Illuminate\Http\Request;
@@ -11,8 +11,18 @@ use Illuminate\Support\Facades\Session;
 
 class AuthController extends Controller {
 
-	public function index()
+	public function index(Request $request)
     {
+        if (null !== $request->segment('2'))
+        {
+            $this->dispatch(
+                new TrySignIn($request->segment('2'))
+            );
+
+            dd(Session::all());
+            return redirect('/');
+        }
+
         return view('auth.index');
     }
 
@@ -25,12 +35,4 @@ class AuthController extends Controller {
         return view('auth.emailSent');
     }
 
-    public function byToken(Request $request)
-    {
-        $this->dispatch(
-            new ValidateAuthToken($request->segments()[1])
-        );
-
-        return redirect('/');
-    }
 }

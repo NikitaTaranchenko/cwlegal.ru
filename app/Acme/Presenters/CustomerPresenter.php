@@ -11,7 +11,7 @@ namespace App\Acme\Presenters;
 
 use Laracasts\Presenter\Presenter;
 
-class UserPresenter extends Presenter {
+class CustomerPresenter extends Presenter {
 
     public function fullName()
     {

@@ -1,6 +1,6 @@
 <?php namespace App\Handlers\Commands;
 
-use App\Acme\Repositories\Token\TokenEloquentRepository;
+use App\Acme\Repositories\Customer\CustomerEloquentRepository;
 use App\Commands\SendAuthEmail;
 
 use Illuminate\Queue\InteractsWithQueue;
@@ -14,41 +14,45 @@ class SendAuthEmailHandler {
      * @var TokenEloquentRepository
      */
     private $tokenRepo;
+    /**
+     * @var CustomerEloquentRepository
+     */
+    private $customerRepo;
 
     /**
      * Create the command handler.
-     * @param TokenEloquentRepository $tokenRepo
+     * @param CustomerEloquentRepository $customerRepo
      */
-	public function __construct(TokenEloquentRepository $tokenRepo)
+	public function __construct(CustomerEloquentRepository $customerRepo)
 	{
-        $this->tokenRepo = $tokenRepo;
+        $this->customerRepo = $customerRepo;
     }
 
     /**
      * Handle the command.
      *
-     * @param SendAuthEmail $user
+     * @param SendAuthEmail $customer
      */
-	public function handle(SendAuthEmail $user)
+	public function handle(SendAuthEmail $customer)
 	{
         /**
-         * Store $token and $email in database;
+         * Store $hash and $email in Customers database;
          */
-        $this->tokenRepo->store($user->token, $user->email);
+        $this->customerRepo->store($customer->hash, $customer->email);
 
         /**
          * Prepare data to send.
          */
 
-        $link = route('auth.byToken', ['value'=>$user->token]);
+        $link = route('auth.get', ['value'=>$customer->hash]);
         $data = compact('link');
 
         /**
          * Send email.
          */
-        Mail::send('emails.static.auth.token', $data, function($message) use ($user)
+        Mail::send('emails.static.auth.token', $data, function($message) use ($customer)
         {
-            $message->to('taranchenko@me.com', $user->name)->subject('Your link to CW Legal portal');
+            $message->to('taranchenko@me.com', $customer->name)->subject('Your link to CW Legal portal');
         });
 //        Mail::send('emails.static.token_' . Session::get('locale'), $data, function($message) use ($user)
 //        {

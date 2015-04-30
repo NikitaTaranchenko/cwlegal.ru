@@ -25,13 +25,13 @@ class SendAuthEmail extends Command {
         /**
          * Calculate md5 hash as @param $token.
          */
-        $token = md5($email . microtime() . 'cwanywheresalt');
+        $hash = md5($email . microtime() . 'cwanywheresalt');
 
         /**
          * Pass values to Command's parameters.
          */
        	$this->email = $email;
         $this->name = $name;
-        $this->token = $token;
+        $this->hash = $hash;
 	}
 }
