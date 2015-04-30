@@ -14,8 +14,7 @@ Route::get('/', function(){
     return view('static.landing');
 });
 
-Route::get('auth/{hash?}', ['as'=>'auth.get', 'uses'=>'AuthController@index'])
-->where('hash', '[0-9a-z]{32}');
+Route::get('auth/{hash?}', ['as'=>'auth.get', 'uses'=>'AuthController@index'])->where('hash', '[0-9a-z]{32}');
 Route::post('auth', ['as'=>'auth.post', 'uses'=>'AuthController@post']);
 
 

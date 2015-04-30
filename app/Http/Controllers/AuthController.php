@@ -1,6 +1,5 @@
 <?php namespace App\Http\Controllers;
 
-
 use App\Commands\SendAuthEmail;
 use App\Commands\TrySignIn;
 use App\Http\Requests;

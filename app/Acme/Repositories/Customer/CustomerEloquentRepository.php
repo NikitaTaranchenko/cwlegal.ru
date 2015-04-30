@@ -22,4 +22,5 @@ class CustomerEloquentRepository implements CustomerRepositoryInterface {
     {
         return Customer::where('hash', '=', $hash)->delete();
     }
+
 }
