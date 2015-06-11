@@ -38,10 +38,10 @@ gulp.task('exportFromBower', function(){
     gulp.src('bower_components/bootstrap/less/*')
         .pipe(gulp.dest('resources/assets/less/bootstrap'));
 
-    gulp.src('bower_components/font-awesome/less/*')
-        .pipe(gulp.dest('resources/assets/less/font-awesome'));
+    gulp.src('bower_components/fontawesome/less/*')
+        .pipe(gulp.dest('resources/assets/less/fontawesome'));
 
-    gulp.src('bower_components/font-awesome/fonts/*')
+    gulp.src('bower_components/fontawesome/fonts/*')
         .pipe(gulp.dest('public/fonts'));
 
     gulp.src('bower_components/bootstrap/less/mixins/*')
