@@ -11,8 +11,13 @@
 |
 */
 Route::get('/', function(){
-    return view('static.landing');
+    return redirect('cover');
 });
+
+Route::get('cover', function(){
+    return view('cover');
+});
+
 
 Route::get('auth/{hash?}', ['as'=>'auth.get', 'uses'=>'AuthController@index'])->where('hash', '[0-9a-z]{32}');
 Route::post('auth', ['as'=>'auth.post', 'uses'=>'AuthController@post']);
