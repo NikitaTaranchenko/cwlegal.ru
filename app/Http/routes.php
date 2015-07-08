@@ -22,6 +22,14 @@ Route::get('cover', function(){
 Route::get('auth/{hash?}', ['as'=>'auth.get', 'uses'=>'AuthController@index'])->where('hash', '[0-9a-z]{32}');
 Route::post('auth', ['as'=>'auth.post', 'uses'=>'AuthController@post']);
 
+/*
+ *
+ *
+ */
+Route::post('kontur/request', 'KonturController@postRequest');
+Route::get('kontur/request', 'KonturController@getRequest');
+
+
 
 //Route::controllers([
 //    'lang' => 'Preferences\LanguageController'
